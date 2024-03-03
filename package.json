@@ -3,11 +3,11 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
+		"db": "tsx ./initializeDB.ts -p",
 		"start": "next dev",
-		"build": "next build",
+		"build": "tsx ./initializeDB.ts && next build",
 		"serve": "next start",
-		"lint": "next lint",
-		"db": "tsx ./initializeDB.ts -p"
+		"lint": "next lint"
 	},
 	"dependencies": {
 		"bcrypt": "^5.1.1",
