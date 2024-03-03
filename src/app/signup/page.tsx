@@ -6,6 +6,10 @@ import {hash} from 'bcrypt'
 import {AsyncDatabase} from 'promised-sqlite3'
 import {Database} from 'sqlite3'
 
+export const config = {
+	runtime: 'nodejs'
+}
+
 export default function Signup() {
 	const registerUser = async (formData: {
 		email: string

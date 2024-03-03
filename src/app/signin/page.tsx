@@ -8,6 +8,10 @@ import {SignJWT} from 'jose'
 import {AsyncDatabase} from 'promised-sqlite3'
 import {Database} from 'sqlite3'
 
+export const config = {
+	runtime: 'nodejs'
+}
+
 export default function Signin() {
 	const authenticateUser = async (formData: {
 		email: string
