@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import fs from 'fs'
+import path from 'path'
 
 import Form from './form'
 import styles from './page.module.css'
@@ -18,7 +20,9 @@ export default function Signin() {
 		'use server'
 
 		try {
-			const db = new AsyncDatabase(new Database('./users.db'))
+			const db = new AsyncDatabase(
+				new Database(path.join(process.cwd(), 'users.db'))
+			)
 
 			const user: {name: string; pwHashed: string} | undefined = await db.get(
 				`SELECT name, pwHashed FROM users WHERE email = '${formData.email}'`

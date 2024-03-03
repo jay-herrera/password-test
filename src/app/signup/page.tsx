@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 import BackButton from './back-button'
 import Form from './form'
 import styles from './page.module.css'
@@ -18,7 +21,9 @@ export default function Signup() {
 		const hashedPassword = await hash(formData.password, 10)
 
 		try {
-			const db = new AsyncDatabase(new Database('./users.db'))
+			const db = new AsyncDatabase(
+				new Database(path.join(process.cwd(), 'users.db'))
+			)
 
 			await db.run(`
 				INSERT INTO users (email, name, pwHashed)
