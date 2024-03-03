@@ -34,7 +34,7 @@
     #00000080
   );
 
-  --callout-rgb: 238, 240, 241;
+  --callout-rgb: 228, 231, 233;
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
@@ -87,12 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background:rgb(var(--background-start-rgb));
 }
 
 a {

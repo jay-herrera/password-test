@@ -1,24 +1,44 @@
 {
-  "name": "password-test",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.1"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.1"
-  }
+	"name": "password-test",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"start": "next dev",
+		"build": "next build",
+		"serve": "next start",
+		"lint": "next lint",
+		"db": "tsx ./initializeDB.ts -p"
+	},
+	"dependencies": {
+		"bcrypt": "^5.1.1",
+		"i": "^0.3.7",
+		"jose": "^5.2.2",
+		"next": "14.1.1",
+		"npm": "^10.5.0",
+		"promised-sqlite3": "^2.1.0",
+		"react": "^18",
+		"react-dom": "^18",
+		"sqlite3": "^5.1.7"
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+		"@types/bcrypt": "^5.0.2",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@types/sqlite3": "^3.1.11",
+		"eslint": "^8.57.0",
+		"eslint-config-next": "14.1.1",
+		"eslint-config-prettier": "^8.7.0",
+		"eslint-config-react-app": "^7.0.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-sort-exports": "^0.9.1",
+		"eslint-plugin-sort-keys-fix": "^1.1.2",
+		"prettier": "^2.8.4",
+		"tsx": "^4.7.1",
+		"typescript": "^5",
+		"typescript-eslint": "^7.1.0"
+	}
 }

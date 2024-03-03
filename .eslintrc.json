@@ -1,3 +1,108 @@
 {
-  "extends": "next/core-web-vitals"
+	"root": true,
+	"plugins": ["react", "import", "sort-keys-fix", "sort-exports"],
+	"extends": [
+		"next",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"react-app",
+		"plugin:react/jsx-runtime",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"overrides": [
+		{
+			"files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+			"rules": {
+				"@next/next/no-img-element": "off",
+				"react-hooks/exhaustive-deps": "off",
+				"no-console": ["warn", {"allow": ["warn", "error", "info"]}],
+				"no-unused-vars": "off",
+				"react/prop-types": 0,
+				"react/display-name": "off",
+				"@typescript-eslint/no-unused-vars": [
+					"warn",
+					{
+						"vars": "all",
+						"varsIgnorePattern": "^_",
+						"args": "all",
+						"argsIgnorePattern": "^_",
+						"destructuredArrayIgnorePattern": "^_"
+					}
+				],
+				"import/no-duplicates": "warn",
+				"sort-exports/sort-exports": ["warn", {"sortDir": "asc"}],
+				"import/order": [
+					"warn",
+					{
+						"alphabetize": {
+							"order": "asc",
+							"caseInsensitive": true
+						},
+						"groups": [
+							"builtin",
+							["internal", "parent", "sibling", "index"],
+							"external",
+							"unknown"
+						],
+						"newlines-between": "always",
+						"pathGroups": [
+							{
+								"pattern": "react",
+								"group": "builtin",
+								"position": "before"
+							},
+							{
+								"pattern": "next/**",
+								"group": "builtin",
+								"position": "before"
+							},
+							{
+								"pattern": "@*",
+								"group": "internal",
+								"position": "before"
+							}
+						],
+						"pathGroupsExcludedImportTypes": ["builtin"],
+						"distinctGroup": false
+					}
+				],
+				"arrow-body-style": ["warn", "always"],
+				"no-empty": "off",
+				"padding-line-between-statements": [
+					"warn",
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "multiline-block-like"
+					},
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "multiline-const"
+					},
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "multiline-expression"
+					},
+					{
+						"blankLine": "always",
+						"prev": "*",
+						"next": "multiline-let"
+					},
+					{"blankLine": "always", "prev": "*", "next": "return"}
+				],
+				"sort-keys-fix/sort-keys-fix": [
+					"warn",
+					"asc",
+					{"caseSensitive": false, "natural": true}
+				],
+				"sort-imports": [
+					"warn",
+					{"ignoreCase": true, "ignoreDeclarationSort": true}
+				]
+			}
+		}
+	]
 }
