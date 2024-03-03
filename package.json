@@ -3,9 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"db": "tsx ./initializeDB.ts -p",
 		"start": "next dev",
-		"build": "tsx ./initializeDB.ts && next build",
+		"build": "next build",
 		"serve": "next start",
 		"lint": "next lint"
 	},
