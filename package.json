@@ -10,15 +10,14 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@vercel/postgres": "^0.7.2",
 		"bcrypt": "^5.1.1",
 		"i": "^0.3.7",
 		"jose": "^5.2.2",
 		"next": "14.1.1",
 		"npm": "^10.5.0",
-		"promised-sqlite3": "^2.1.0",
 		"react": "^18",
-		"react-dom": "^18",
-		"sqlite3": "^5.1.7"
+		"react-dom": "^18"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",

@@ -1,14 +1,11 @@
 import Link from 'next/link'
-import fs from 'fs'
-import path from 'path'
 
 import Form from './form'
 import styles from './page.module.css'
 
+import {sql} from '@vercel/postgres'
 import {compare} from 'bcrypt'
 import {SignJWT} from 'jose'
-import {AsyncDatabase} from 'promised-sqlite3'
-import {Database} from 'sqlite3'
 
 export const runtime = 'nodejs'
 
@@ -20,15 +17,10 @@ export default function Signin() {
 		'use server'
 
 		try {
-			const db = new AsyncDatabase(
-				new Database(path.join(process.cwd(), 'users.db'))
-			)
-
-			const user: {name: string; pwHashed: string} | undefined = await db.get(
-				`SELECT name, pwHashed FROM users WHERE email = '${formData.email}'`
-			)
-
-			db.close()
+			const {
+				rows: [user]
+			} =
+				await sql`SELECT name, pwHashed FROM users WHERE email = ${formData.email}`
 
 			if (!user) {
 				return {
@@ -37,7 +29,7 @@ export default function Signin() {
 				}
 			}
 
-			if (await compare(formData.password, user.pwHashed)) {
+			if (await compare(formData.password, user.pwhashed)) {
 				if (!process.env.JWT_SECRET) {
 					throw new Error('JWT_SECRET not found')
 				}

@@ -1,13 +1,9 @@
-import fs from 'fs'
-import path from 'path'
-
 import BackButton from './back-button'
 import Form from './form'
 import styles from './page.module.css'
 
+import {sql} from '@vercel/postgres'
 import {hash} from 'bcrypt'
-import {AsyncDatabase} from 'promised-sqlite3'
-import {Database} from 'sqlite3'
 
 export const runtime = 'nodejs'
 
@@ -21,15 +17,10 @@ export default function Signup() {
 		const hashedPassword = await hash(formData.password, 10)
 
 		try {
-			const db = new AsyncDatabase(
-				new Database(path.join(process.cwd(), 'users.db'))
-			)
-
-			await db.run(`
-				INSERT INTO users (email, name, pwHashed)
-				VALUES ('${formData.email}', '${formData.name}', '${hashedPassword}')
-			`)
-			await db.close()
+			sql`
+				INSERT INTO users (email, name, pwhashed)
+				VALUES (${formData.email}, ${formData.name}, ${hashedPassword})
+			`
 
 			return {
 				message: 'User registered successfully!',
@@ -37,7 +28,7 @@ export default function Signup() {
 			}
 		} catch (err) {
 			console.error(err)
-			
+
 			if (
 				(err as Error).message ===
 				'SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email'
