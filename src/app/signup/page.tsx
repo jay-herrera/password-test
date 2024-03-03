@@ -36,6 +36,8 @@ export default function Signup() {
 				status: 200
 			}
 		} catch (err) {
+			console.error(err)
+			
 			if (
 				(err as Error).message ===
 				'SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email'
