@@ -8,7 +8,7 @@ export default function Home() {
 	const name = cookies().get('name')
 
 	return (
-		<main className={styles.main}>
+		<>
 			<div className={styles.header}>
 				<SignoutButton />
 				<p className={styles.greeting}>
@@ -27,6 +27,6 @@ export default function Home() {
 			</div>
 
 			<div />
-		</main>
+		</>
 	)
 }

@@ -47,7 +47,7 @@ export default function Signup() {
 	}
 
 	return (
-		<main className={styles.main}>
+		<>
 			<BackButton />
 			<div className={styles['form-wrapper']}>
 				<Form {...{registerUser}}>
@@ -75,6 +75,6 @@ export default function Signup() {
 				</Form>
 			</div>
 			<div />
-		</main>
+		</>
 	)
 }

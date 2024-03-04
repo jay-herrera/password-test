@@ -73,7 +73,7 @@ export default function Signin() {
 	}
 
 	return (
-		<main className={styles.main}>
+		<>
 			<div className={styles.header}>
 				<Link href='/signup'>
 					<p>Sign Up</p>
@@ -93,6 +93,6 @@ export default function Signin() {
 				</Form>
 			</div>
 			<div />
-		</main>
+		</>
 	)
 }
