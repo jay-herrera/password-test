@@ -2,7 +2,7 @@
 import {ReactNode, useState} from 'react'
 import {useRouter} from 'next/navigation'
 
-import styles from './page.module.css'
+import {RotatingLines} from 'react-loader-spinner'
 
 export default function Form({
 	children,
@@ -16,6 +16,7 @@ export default function Form({
 	}) => Promise<{status: number; message: string}>
 }) {
 	const [errorText, setErrorText] = useState('')
+	const [loading, setLoading] = useState(false)
 	const router = useRouter()
 
 	return (
@@ -30,8 +31,10 @@ export default function Form({
 				}`}
 			</p>
 			<form
-				className={styles['input-wrapper']}
+				className='input-wrapper'
 				action={async (formDataRaw) => {
+					setLoading(true)
+
 					const formData = Object.fromEntries(formDataRaw) as {
 						email: string
 						name: string
@@ -83,14 +86,26 @@ export default function Form({
 
 					if (response.status !== 200) {
 						setErrorText(response.message)
+						setLoading(false)
 
 						return
-					} else {
-						router.replace('/signin')
 					}
+					router.replace('/signin')
 				}}
 			>
 				{children}
+				{loading ? (
+					<div
+						className='submit'
+						onClick={() => {
+							return setLoading(false)
+						}}
+					>
+						<RotatingLines width='29' strokeColor='#555555' />
+					</div>
+				) : (
+					<input type='submit' value='Submit' className='submit' />
+				)}
 			</form>
 		</>
 	)

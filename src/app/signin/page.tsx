@@ -79,17 +79,16 @@ export default function Signin() {
 					<p>Sign Up</p>
 				</Link>
 			</div>
-			<div className={styles['form-wrapper']}>
+			<div className='form-wrapper'>
 				<Form {...{authenticateUser}}>
 					<label className={styles.label}>
 						Enter your email:
-						<input type='email' name='email' className={styles.input} />
+						<input type='email' name='email' />
 					</label>
 					<label className={styles.label}>
 						Enter your password:
-						<input type='password' name='password' className={styles.input} />
+						<input type='password' name='password' />
 					</label>
-					<input type='submit' value='Submit' className={styles.submit} />
 				</Form>
 			</div>
 			<div />

@@ -1,6 +1,6 @@
 import BackButton from './back-button'
 import Form from './form'
-import styles from './page.module.css'
+import styles from '../signin/page.module.css'
 
 import {sql} from '@vercel/postgres'
 import {hash} from 'bcrypt'
@@ -48,30 +48,27 @@ export default function Signup() {
 
 	return (
 		<>
-			<BackButton />
-			<div className={styles['form-wrapper']}>
+			<div className={styles.header}>
+				<BackButton />
+			</div>
+			<div className='form-wrapper'>
 				<Form {...{registerUser}}>
 					<label className={styles.label}>
 						Enter your email:
-						<input type='email' name='email' className={styles.input} />
+						<input type='email' name='email' />
 					</label>
 					<label className={styles.label}>
 						Enter your name:
-						<input type='text' name='name' className={styles.input} />
+						<input type='text' name='name' />
 					</label>
 					<label className={styles.label}>
 						Enter a password:
-						<input type='password' name='password' className={styles.input} />
+						<input type='password' name='password' />
 					</label>
 					<label className={styles.label}>
 						Confirm password:
-						<input
-							type='password'
-							name='password-confirm'
-							className={styles.input}
-						/>
+						<input type='password' name='password-confirm' />
 					</label>
-					<input type='submit' value='Submit' className={styles.submit} />
 				</Form>
 			</div>
 			<div />

@@ -100,3 +100,42 @@ a {
     color-scheme: dark;
   }
 }
+
+input[type=password],
+input[type=email],
+input[type=text] {
+	font-size: 25px;
+	max-height: 30px;
+}
+
+.input-wrapper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 10px;
+	width: fit-content;
+}
+
+.form-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.submit {
+	width: 100%;
+	font-size: 25px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 1rem;
+	background-color: rgb(var(--callout-rgb));
+	border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+	border-radius: var(--border-radius);
+}
