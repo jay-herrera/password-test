@@ -1,5 +1,4 @@
 'use client'
-import styles from './page.module.css'
 
 import {motion} from 'framer-motion'
 
@@ -20,7 +19,6 @@ export default function Template({children}: {children: React.ReactNode}) {
 				stiffness: 50,
 				type: 'easein'
 			}}
-			className={styles.main}
 		>
 			{children}
 		</motion.main>
